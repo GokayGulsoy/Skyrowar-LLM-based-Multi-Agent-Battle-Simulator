@@ -71,7 +71,7 @@ source venv/bin/activate
 
 ## Install Dependencies
 
-Install the dependecies required to run the project are installed as follows:
+Install the dependecies required to run the project via executing following command:
 
 ```bash
 pip install -r requirements.txt
@@ -121,7 +121,7 @@ python main.py
 models, number of episodes, and difficulty scaling can be customized using command-line arguments:
 
 ```bash
-python main.py --model-a "gpt-4o" --model-b "gpt-4o"-mini" --episodes 10 --difficulty 1.5
+python main.py --model-a "gpt-4o" --model-b "gpt-4o-mini" --episodes 10 --difficulty 1.5
 ```
 
 To get detailed usage instructions for command line arguments execute: 
@@ -153,6 +153,3 @@ python -m utils.api_model_checker --help
 Supported providers: `openai`,`google`,`anthropic`,`llama`
 
 Link to Research Paper: [Syrowar: The LLM-based Multi-Agent Card Game-Playing Framework]()
-
-
-
