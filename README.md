@@ -14,16 +14,16 @@ Multi_Agent_Systems_Project
 │       team_lead_agent.py
 │       team_manager_agent.py
 │       __init__.py
-││
+│
 ├───game
 │       game.py
 │       __init__.py
 │
 └───utils
-|       agent_model_factory.py
-|       api_model_checker.py
-|       __init__.py
-|
+│       agent_model_factory.py
+│       api_model_checker.py
+│       __init__.py
+│
 ├───Experimental Results
 │       Compared_models.txt
 │       Experiment_A1.txt
