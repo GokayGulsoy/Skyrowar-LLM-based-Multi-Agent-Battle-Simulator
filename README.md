@@ -152,4 +152,4 @@ python -m utils.api_model_checker --help
 
 Supported providers: `openai`,`google`,`anthropic`,`llama`
 
-Link to Research Paper: [Syrowar: The LLM-based Multi-Agent Card Game-Playing Framework]()
+Link to Research Paper: [Syrowar: The LLM-based Multi-Agent Card Game-Playing Framework](CENG568_Research_Project_Paper.pdf)
