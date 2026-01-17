@@ -1,0 +1,2629 @@
+Starting Battle Simulation (5 Episodes)...
+Running Episode 1...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME    
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+[SYSTEM] Applying Difficulty 1.5x (Factor: 1.22) to Team B
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Khajit', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter Deal 30 damage to the attacker when a teammate's health is below '30%'.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 2: {'idx': 2, 'name': 'Nord', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 3: {'idx': 3, 'name': 'Imperial', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill will allow us to deal damage to all enemies simultaneously. This is a strategic move to weaken the entire opposing team early in the battle, setting us up for more targeted attacks in subsequent turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 419
+    > Khajit took 70 damage. HP: 419
+    > Nord took 70 damage. HP: 419
+    > Imperial took 70 damage. HP: 419
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 419, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use Crit for a strong attack on the enemy, as it deals significant damage and helps to maintain a balanced use of heroes.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Argonian has not been used yet, and using the AOE skill will deal damage to all enemies. This will help in weakening multiple opponents simultaneously, setting up for future attacks from other heroes.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 299
+    > Khajit took 70 damage. HP: 299
+    > Nord took 70 damage. HP: 299
+    > Imperial took 70 damage. HP: 319
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 299, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy. This helps in diversifying the skills used and ensures that we are not relying on the same hero repeatedly.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 160, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "Imperial will use Infight on Nord to increase its attack power by 140. Nord has full health and can take the 75 damage. This will make Imperial more powerful for future attacks, and we haven't used Imperial yet.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Imperial uses Infight on Nord!
+    > Nord takes 75 damage. Health 325
+    > Imperial gains 140 Attack Power! (New AP: 340)
+[Team A] performed an internal maneuver. Turn ends.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use Crit for a strong attack on the enemy, as it deals significant damage and allows us to diversify our hero usage.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 40
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 40, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a high chance to deal significant damage with its Crit skill. This will help us weaken the enemy team while keeping our strategy varied. Additionally, Nord's passive ability might help avoid incoming damage, keeping him alive longer.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 179
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 179, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Choosing Nord to use his Crit skill to deal significant damage to the enemy. This helps in reducing the enemy's health quickly while ensuring that I am not repeating the same hero consecutively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: -80
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This move will help us maintain offensive pressure while also ensuring that we utilize Nord's unique ability. Additionally, this is the first time Nord is being used, aligning with the strategy to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    >  CRITICAL BREACH! Enemy correctly guessed Khajit!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 9
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 9, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian's AOE skill allows us to deal damage to all enemies, which is strategic given that we need to weaken the opposing team. This also ensures that we are using a different hero for this attack, as required.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 240
+    > Imperial took 85 damage. HP: 315
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 315
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 240, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has not been used recently. Using Nord's Crit skill will deal significant damage to an enemy, which is beneficial at this stage. This choice also ensures that I am utilizing different heroes strategically.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: -111
+    > Hero Khajit has DIED.
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use its AOE skill to deal damage to all enemies, maximizing our attack potential against the opposing team.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 105
+    > Imperial took 85 damage. HP: 200
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 180
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 105, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good candidate for an attack. Using Nord's Crit skill will deal significant damage to an enemy, and since Nord has not been used in the last move, it aligns with the strategy of not using the same hero consecutively.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 79
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 79, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a critical damage skill that can deal significant damage to the enemy. Since Argonian is already low on health, using Nord's Crit skill now will help us maximize damage output while ensuring we use different heroes strategically.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 100
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 120, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good choice for an aggressive move. Using the Crit skill will deal significant damage to an enemy, and Nord's passive ability provides a chance to avoid incoming damage, which is beneficial given its current low health.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: -41
+    > Hero Nord has DIED.
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian is alive and can deal damage to all enemies, which is beneficial since both Khajit and Nord are dead. This will help in reducing the enemy team's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 20
+    > Imperial took 85 damage. HP: 35
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 95
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+   > Bosmer is ENRAGED! (+15 Attack Power). Current AP: 215
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 55, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has a strong Crit skill that can deal increased damage if the enemy's health is below 160. Using Bosmer's Crit skill now can potentially eliminate a low-health enemy, which is crucial given the current state of our team. This also ensures that we are utilizing different heroes and not over-relying on one hero.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 301
+    > Incoming: 301 damage (AOE: False)
+    > Argonian took 301 damage. HP: -222
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 239, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': 'Using Infight on Imperial to increase its attack power while also dealing damage to itself, as it is the only alive hero. This will prepare for a stronger attack in the next turn.', 'current_ap': 244}
+
+-----------------------------
+Team Manager Error: Infight cannot target self.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has not been used recently. His Crit skill can deal significant damage, especially if the enemy's health is low, potentially increasing the damage to 140%. This is a strategic move to maximize damage output and potentially eliminate a low-health enemy.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 119
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 139, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': None, 'reasoning': 'Imperial is the only alive hero, and since there are no living teammates to target with Infight, I will have to select a Basic Attack instead.', 'current_ap': 244}
+
+-----------------------------
+Error: Internal skill requires a target ID.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer's Crit skill is effective against enemies with low health, potentially increasing the damage to 140% if the target's health is below 160. This can help eliminate a weakened enemy quickly. Additionally, Bosmer has not been used yet, fulfilling the strategy of using each hero at least once.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 301, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 301 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 301 damage (AOE: False)
+    > Imperial took 301 damage. HP: -162
+    > Hero Imperial has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(3) vs B(0)
+Damage Dealt: A(1959) - B(1430)
+Running Episode 2...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+[SYSTEM] Applying Difficulty 1.5x (Factor: 1.22) to Team B
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Khajit', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter Deal 30 damage to the attacker when a teammate's health is below '30%'.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 2: {'idx': 2, 'name': 'Nord', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 3: {'idx': 3, 'name': 'Imperial', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Starting with Argonian's AOE attack to deal damage to all enemies. This will help in weakening the entire enemy team and is a good opening move to assess the enemy's health status.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 369
+    > Khajit took 70 damage. HP: 369
+    > Nord ACTIVATED 'REDUCE': Dodged!
+    > Imperial took 70 damage. HP: 369
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 369, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill for a strong attack against the enemy, as it deals significant damage and helps diversify the usage of heroes in our strategy.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit skill that can deal significant damage to a single enemy. This is a good opportunity to use it since Nord is still at full health and hasn't been used yet. This will also help in revealing Nord's identity to the enemy team, which might make them cautious about targeting him due to his passive ability.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 249
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 249, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use his Crit skill will deal significant damage to the enemy, and it is important to utilize different heroes for future strategies.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 160, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is at full health and has a powerful Crit skill that can deal significant damage to an enemy. Using this skill will help weaken the opposing team while keeping our team balanced in terms of hero usage.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    >  CRITICAL BREACH! Enemy correctly guessed Khajit!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 79
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 79, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill allows us to deal damage to all enemies, maximizing our attack potential and spreading damage across the opposing team.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Argonian took 85 damage. HP: 25
+    > Nord took 85 damage. HP: 265
+    > Imperial took 85 damage. HP: 265
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 265
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 25, 'status': 'alive'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord has not been used yet, and using his Crit skill will deal significant damage to an enemy. This aligns with the strategy of using each hero at least once and diversifying our attacks.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 219
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 219, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Choosing Nord to use Crit for a strong attack against the enemy, as it deals significant damage and helps in reducing the enemy's health quickly.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+    > Hero Argonian has DIED.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 95
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 95, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Bosmer has a powerful Crit skill that can deal significant damage to the enemy with the lowest health. This move is strategic as it can potentially eliminate a weakened enemy, and Bosmer has not been used yet, fulfilling the requirement to use each hero at least once.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Khajit
+    > Incoming: 280 damage (AOE: False)
+    > Khajit took 280 damage. HP: -251
+    > Hero Khajit has DIED.
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I chose Nord to use his Crit skill to deal significant damage to the enemy, as he has a strong attack power and can help reduce the enemy's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 115
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 135, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has a powerful Crit skill that can deal significant damage, especially if the enemy's health is below 160. This move will help us target and potentially eliminate a low-health enemy, which is strategic given the current state of our team. Additionally, Bosmer has not been used yet, fulfilling the requirement to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 99
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 99, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use its AOE skill to deal damage to all enemies, maximizing our attack potential against the opposing team.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 10
+    > Imperial took 85 damage. HP: 50
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 130
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 70, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a critical attack skill that can deal significant damage to an enemy. Since Nord's health is very low, using a direct attack on the enemy is a strategic choice to maximize damage output before Nord potentially falls in battle. This also ensures that Nord is utilized at least once, as per the strategy rules.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: -21
+    > Hero Nord has DIED.
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Argonian is alive and can deal damage to all enemies, which is beneficial since both opponents are dead. This will help in maximizing our attack potential.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: -75
+    > Hero Nord has DIED.
+    > Imperial took 85 damage. HP: -15
+    > Hero Imperial has DIED.
+    > Bosmer took 85 damage. HP: 45
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+   > Bosmer is ENRAGED! (+15 Attack Power). Current AP: 215
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive in the team. Using Bosmer's Crit skill is strategic because it deals significant damage to the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This maximizes the impact of the attack given Bosmer's current attack power.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 301
+    > Incoming: 301 damage (AOE: False)
+    > Argonian took 301 damage. HP: -152
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 289, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': 'Using Infight on Imperial to increase his attack power, as he is the only alive hero and can benefit from the buff.', 'current_ap': 244}
+
+-----------------------------
+Team Manager Error: Infight cannot target self.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive, and using the Crit skill will maximize damage output against the enemy. The skill targets the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This is a strategic move to leverage Bosmer's current attack power and the skill's potential increased damage.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 301, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 301 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 301 damage (AOE: False)
+    > Imperial took 301 damage. HP: -12
+    > Hero Imperial has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(1) vs B(0)
+Damage Dealt: A(1959) - B(1555)
+Running Episode 3...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+[SYSTEM] Applying Difficulty 1.5x (Factor: 1.22) to Team B
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Khajit', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter Deal 30 damage to the attacker when a teammate's health is below '30%'.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 2: {'idx': 2, 'name': 'Nord', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 3: {'idx': 3, 'name': 'Imperial', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Starting with Argonian's AOE skill to deal damage to all enemies. This will help in weakening the entire enemy team, setting up for future targeted attacks. Also, using Argonian first ensures we are not relying on a single hero repeatedly.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 369
+    > Khajit took 70 damage. HP: 369
+    > Nord took 70 damage. HP: 369
+    > Imperial took 70 damage. HP: 369
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 369, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use Crit for a strong attack against the enemy, as it deals significant damage and helps to diversify the skills used among the heroes.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has not been used yet, and his Crit skill can deal significant damage to an enemy. This will help in reducing the enemy's health significantly, and it is important to utilize each hero's unique skills at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 249
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 249, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use Crit for a strong attack against the enemy. This is the first time using Nord, and it helps to diversify our attack strategy.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 160, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer's Crit skill is effective for targeting enemies with low health, potentially increasing the damage output. This is the first time Bosmer is being used, aligning with the strategy to utilize each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    >  CRITICAL BREACH! Enemy correctly guessed Khajit!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Khajit
+    > Incoming: 280 damage (AOE: False)
+    > Khajit took 280 damage. HP: -81
+    > Hero Khajit has DIED.
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill allows us to deal damage to all enemies, maximizing our attack potential while ensuring we utilize different heroes strategically.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Argonian took 85 damage. HP: 25
+    > Nord took 85 damage. HP: 265
+    > Imperial took 85 damage. HP: 265
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 265
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 25, 'status': 'alive'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has not been used yet, and his active skill can deal significant damage to an enemy. This will help in reducing the enemy's health significantly, and since Nord has a passive ability to potentially avoid damage, it is a strategic choice to use him now.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 269, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Choosing Nord to use Crit for a strong attack on the enemy, as it deals significant damage and helps to reduce the enemy's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+    > Hero Argonian has DIED.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 95
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 95, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Bosmer is alive and has a powerful Crit skill that can deal significant damage to the enemy with the lowest health. This move is strategic as it can potentially eliminate a weak enemy, and Bosmer has not been used recently, ensuring diversity in hero selection.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 280 damage (AOE: False)
+    > Argonian took 280 damage. HP: -51
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 269, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and can deal significant damage with his Crit skill. This will help to weaken the enemy team while ensuring that we utilize different heroes for future moves.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 115
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 135, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful critical attack that can deal significant damage to an enemy. This will help us weaken the opposing team while also ensuring that we use Nord's abilities strategically. Additionally, using Nord now allows us to rotate to other heroes in subsequent turns, adhering to the strategy rules.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 149
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 149, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and can deal significant damage with his Crit skill. This will help us reduce the enemy's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 15
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 35, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has a powerful Crit skill that can deal significant damage to an enemy, especially if the enemy's health is below 160. This move will help us strategically weaken the enemy team while also revealing Bosmer's identity.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 289, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and can deal significant damage with his Crit skill. This will help in reducing the enemy's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: -85
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has not been used recently. Using Bosmer's Crit skill will target the enemy with the lowest health, potentially dealing increased damage if the target's health is below 160. This strategic move can help eliminate a weak enemy or significantly reduce their health.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 280 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 149, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Selecting Nord to use Crit as it deals significant damage to the enemy, and it's important to utilize our alive heroes effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 95, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has not been used yet. Using Bosmer's Crit skill will deal significant damage to the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This strategic move will help weaken the enemy team further.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 280 damage (AOE: False)
+    > Nord took 280 damage. HP: -131
+    > Hero Nord has DIED.
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': None, 'reasoning': 'Imperial is the only alive hero, and since there are no living teammates to target with Infight, I will use Basic Attack instead.', 'current_ap': 244}
+
+-----------------------------
+Error: Internal skill requires a target ID.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has a powerful Crit skill that can deal significant damage, especially if the enemy's health is below 160. This will help us maximize damage output while keeping our strategy diverse.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 169
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 189, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': 'Using Infight on Imperial to increase his attack power, as he is the only alive hero left. This will prepare him for a stronger attack in the next turn.', 'current_ap': 244}
+
+-----------------------------
+Team Manager Error: Infight cannot target self.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has not been used recently. Using Bosmer's Crit skill will deal significant damage to the enemy with the lowest health, potentially increasing the damage to 140% if the target's health is below 160. This strategic move aims to weaken or eliminate a vulnerable enemy, leveraging Bosmer's high attack power.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 280 damage (AOE: False)
+    > Imperial took 280 damage. HP: -91
+    > Hero Imperial has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(2) vs B(0)
+Damage Dealt: A(1959) - B(1290)
+Running Episode 4...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+[SYSTEM] Applying Difficulty 1.5x (Factor: 1.22) to Team B
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Khajit', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter Deal 30 damage to the attacker when a teammate's health is below '30%'.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 2: {'idx': 2, 'name': 'Nord', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 3: {'idx': 3, 'name': 'Imperial', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Starting with Argonian's AOE attack to deal damage to all enemies. This will help in assessing the enemy team's health distribution and potentially reveal their weaknesses for future targeted attacks.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 419
+    > Khajit took 70 damage. HP: 419
+    > Nord ACTIVATED 'REDUCE': Dodged!
+    > Imperial took 70 damage. HP: 419
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 419, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill for a strong attack against the enemy. This helps to diversify our attack strategy and utilize each hero effectively.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord has a powerful Crit skill that deals significant damage to a single enemy. Using this skill will help us weaken the enemy team effectively. Additionally, Nord has not been used yet, so this aligns with the strategy of utilizing each hero at least once.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 299
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 299, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy, as it provides a strong attack option. This also ensures that I am using a different hero from the previous selections.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 160, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has not been used yet. Using his 'Crit' skill will deal significant damage to an enemy, and it's important to utilize each hero's unique skills at least once. This move will also help in revealing Nord's identity, which is currently not revealed.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 179
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 179, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill, dealing significant damage to an enemy. This helps to strategically weaken the opposing team while ensuring that each hero in our team is utilized effectively.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 40
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 40, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has not been used yet. Using his Crit skill will deal significant damage to an enemy, and since he hasn't been used before, it aligns with the strategy of utilizing each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 59
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 59, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill for a strong attack against the enemy, maximizing damage output while ensuring that we utilize different heroes strategically.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: -80
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This move will help us weaken the enemy team while keeping our options open for future strategic moves.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: -61
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Selecting Nord to use Crit for a strong attack against the enemy, as it deals significant damage and allows us to utilize different heroes strategically.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 230
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 230, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a revealed identity, making it a good choice for an attack. Using the Crit skill allows us to deal significant damage to an enemy. This choice also ensures that we are not using the same hero repeatedly, as we have not used Nord recently.', 'current_ap': 200}        
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    >  CRITICAL BREACH! Enemy correctly guessed Khajit!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 249
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 249, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I chose Nord to use his Crit skill because it deals significant damage to the enemy, and it's important to utilize different heroes for future strategies. Since Nord hasn't been used yet, this also ensures that all heroes are engaged in the battle.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 230
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 250, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good candidate for an attack. Using Nord's Crit skill will deal significant damage to an enemy. This choice also ensures that we are not using the same hero repeatedly, as Nord hasn't been used in the last action.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 319
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 319, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy. This helps to diversify our attack strategy and ensures that we are utilizing all available heroes effectively.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 130
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 150, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good choice for an offensive move. Using Nord's Crit skill will deal significant damage to an enemy, and since Nord hasn't been used in the last move, it aligns with the strategy of utilizing different heroes.", 'current_ap': 200}    
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 319, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy, as he has not been used yet and this will help in diversifying our attack strategy.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 30
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 50, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed status, making it a good choice for an aggressive move. Using Nord's Crit skill will deal significant damage to an enemy, and since Nord has not been used in succession, it aligns with the strategy of varying hero usage.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 319, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill, dealing significant damage to the enemy. This allows us to diversify our attacks and not rely on the same hero repeatedly.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: -70
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good choice for an offensive move. Using Nord's Crit skill allows us to deal significant damage to an enemy, which is beneficial for weakening the opposing team. Additionally, this move helps in diversifying our attack strategy by utilizing different heroes.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 199
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 199, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy. This helps to diversify our attacks and ensures that we utilize each hero effectively.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 110
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 110, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good candidate for an attack. Using Nord's Crit skill will deal significant damage to an enemy, and since we haven't used Nord twice in succession, it's a strategic choice to balance our attack options.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 199, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I selected Nord to use his Crit skill to deal significant damage to the enemy, as he has a strong attack power and is currently alive. This will help us reduce the enemy's health effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: -10
+    > Hero Nord has DIED.
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 12 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive in the team. Using Bosmer's Crit skill will deal significant damage to the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This move maximizes our damage output given the current situation.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 280 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 199, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy. This helps to diversify our attack strategy and ensures that we are not relying on the same hero repeatedly.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 13 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive in the team. Using Bosmer's Crit skill will deal significant damage to the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This move maximizes the damage output given the current situation.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 280 damage (AOE: False)
+    > Nord took 280 damage. HP: -81
+    > Hero Nord has DIED.
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Khajit', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': "I chose Khajit to use Infight on Imperial to boost Khajit's attack power while also dealing damage to a teammate who is still alive. This will help us prepare for future attacks.", 'current_ap': 244}
+
+-----------------------------
+    > INTERNAL ACTION: Khajit uses Infight on Imperial!
+    > Imperial takes 75 damage. Health 314
+    > Khajit gains 140 Attack Power! (New AP: 384)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 14 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive in the team. Using Bosmer's Crit skill is strategic as it targets the enemy with the lowest health, potentially maximizing the damage output and increasing the chance of eliminating an enemy hero.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Khajit
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 129
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 129, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Khajit', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Khajit is currently alive and has the highest attack power among the alive heroes. Using a Basic Attack will deal significant damage to the enemy.', 'current_ap': 384}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 384
+Attacker Skill description: Basic Attack
+{'damage_amount': 384, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 384 damage (AOE: False)
+    > Incoming: 384 damage (AOE: False)
+    > Bosmer took 384 damage. HP: -34
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 15 ---
+
+>>> Team A is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team A HAS DECLARED SURRENDER. Team B WINS! !!!
+
+=== GAME OVER ===
+Winner: Team B
+Alive: A(0) vs B(2)
+Damage Dealt: A(1516) - B(1600)
+Running Episode 5...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+[SYSTEM] Applying Difficulty 1.5x (Factor: 1.22) to Team B
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Khajit', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter Deal 30 damage to the attacker when a teammate's health is below '30%'.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 2: {'idx': 2, 'name': 'Nord', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 3: {'idx': 3, 'name': 'Imperial', 'health': 489, 'attack_power': 244, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill allows us to deal damage to all enemies at once, which can be strategic in weakening multiple opponents simultaneously. This move also ensures that we are not over-relying on a single hero and diversifying our attack strategy.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 419
+    > Khajit took 70 damage. HP: 419
+    > Nord took 70 damage. HP: 419
+    > Imperial took 70 damage. HP: 419
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 419, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Choosing Nord to use Crit for a strong attack against the enemy, as it deals significant damage and allows us to utilize different heroes strategically.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian's AOE attack allows us to deal damage to all enemies simultaneously, which can be beneficial in weakening the opposing team as a whole. This is a strategic move to spread damage across the enemy team, potentially setting up for more focused attacks in future turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 299
+    > Khajit took 70 damage. HP: 299
+    > Nord took 70 damage. HP: 299
+    > Imperial took 70 damage. HP: 319
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 299, 'status': 'alive'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I chose Nord to use his Crit skill to deal significant damage to the enemy. This helps to diversify our attacks and ensures that we utilize each hero's abilities effectively.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 160, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us weaken the enemy team effectively. Additionally, this is the first time Nord is being selected, which aligns with the strategy of using different heroes and not repeating the same hero consecutively.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 179
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 179, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill for a strong attack against the enemy, as it deals significant damage and allows us to diversify our hero usage.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 40
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 40, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit attack that can deal significant damage to an enemy. Since we haven't used Nord yet, it's a good opportunity to utilize his skill to potentially weaken an enemy significantly. This also helps in diversifying our attack strategy by not relying on the same hero repeatedly.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: 59
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 59, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Choosing Nord to use Crit for a strong attack against the enemy, as it deals significant damage. This also allows us to diversify our hero usage since Nord hasn't been used yet.", 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: -80
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us weaken the enemy team effectively. Additionally, Nord has not been used recently, so this choice aligns with the strategy of rotating heroes.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager B] Processing Attack on Pos 1 (Khajit)...
+    >  CRITICAL BREACH! Enemy correctly guessed Khajit!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Khajit took 120 damage. HP: -111
+    > Hero Khajit has DIED.
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use its AOE skill to deal damage to all enemies, maximizing our attack potential while ensuring that each hero is utilized strategically.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 315
+    > Imperial took 85 damage. HP: 315
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 315
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 315, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us weaken the enemy team effectively. Additionally, Nord hasn't been used yet, so this aligns with the strategy to use each hero at least once.", 'current_ap': 200} 
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: 79
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 79, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Argonian is alive and can deal damage to all enemies, which is beneficial for weakening the opposing team. This is a strategic choice to maximize damage output while ensuring that I use different heroes in future turns.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord took 85 damage. HP: 180
+    > Imperial took 85 damage. HP: 200
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 180
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 180, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': 'Imperial will use Infight on Nord to increase its attack power by 140. This will prepare Imperial for a stronger attack in the next turn. Nord has enough health to withstand the Infight damage.', 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Imperial uses Infight on Nord!
+    > Nord takes 75 damage. Health 105
+    > Imperial gains 140 Attack Power! (New AP: 340)
+[Team A] performed an internal maneuver. Turn ends.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Nord to use his Crit skill to deal significant damage to the enemy. This allows us to maximize our attack potential while ensuring that we are using different heroes strategically.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajiit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajiit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 100
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 120, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This will help weaken the opposing team. Additionally, Nord has not been used in the last move, so it's a good opportunity to utilize his skill.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 2 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 2 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Nord took 120 damage. HP: -41
+    > Hero Nord has DIED.
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] TACTICAL SUCCESS! Enemy identity confirmed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Argonian is alive and can deal damage to all enemies, which is beneficial since both enemies are dead. This will help in maximizing damage output while ensuring that we utilize different heroes in future turns.', 'current_ap': 244}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 244
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 85, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 85 damage (AOE: True)
+    > Incoming: 85 damage (AOE: True)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+    > Imperial took 85 damage. HP: 35
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 85 damage. HP: 95
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+   > Bosmer is ENRAGED! (+15 Attack Power). Current AP: 215
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 0) took 40 damage.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 55, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has a unique active skill that can deal significant damage, especially if the enemy's health is below 160. This is an opportunity to maximize damage output and potentially eliminate a low-health enemy. Additionally, Bosmer has not been used yet, fulfilling the requirement to use each hero at least once.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 301
+    > Incoming: 301 damage (AOE: False)
+    > Argonian took 301 damage. HP: -222
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 239, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': None, 'reasoning': 'Imperial is the only alive hero, and since there are no other teammates to target with Infight, I will have to select a different skill. However, since I cannot use Infight on a dead teammate, I will instead perform a Basic Attack on an enemy.', 'current_ap': 244}
+
+-----------------------------
+Error: Internal skill requires a target ID.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful critical attack that can deal significant damage to an enemy. Using Nord's Crit skill will help in reducing the enemy's health significantly, and since Nord is already revealed, there is no risk of revealing another hero at this moment. This move also ensures that we are not using the same hero repeatedly, as Nord hasn't been used in the last move.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Breton)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Breton'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Imperial took 120 damage. HP: 119
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 139, 'status': 'alive'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': 'Using Infight on Imperial to increase attack power, as it is the only alive hero. This will help in future attacks.', 'current_ap': 244}
+
+-----------------------------
+Team Manager Error: Infight cannot target self.
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer's Crit skill is effective against enemies with low health, potentially increasing the damage to 140% if the target's health is below 160. This move can maximize damage output and potentially eliminate a weak enemy, while also ensuring that Bosmer is used at least once as per strategy rules.", 'current_ap': 215}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 3 (Guess: Bosmer)
+
+[Team Manager B] Processing Attack on Pos 3 (Imperial)...
+    > Enemy guessed 'Bosmer'. Incorrect.
+Attacker current AP: 215
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 301, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 301 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Imperial
+    > Incoming: 301 damage (AOE: False)
+    > Imperial took 301 damage. HP: -162
+    > Hero Imperial has DIED.
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'Khajit', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(3) vs B(0)
+Damage Dealt: A(1959) - B(1345)
+
+Simulation Complete in 550.22s
+
+METRIC                                   | TEAM A            | TEAM B
+--------------------------------------------------------------------------------------
+Number of wins out of 5 rounds           | 4 |  1
+Win Rate                                 | 80.00%            |  20.00%
+Avg Damage Rate                          | 116.90%            | 90.25%
+--------------------------------------------------------------------------------------
+FINAL REWARD SCORE                       | 0.9107            | 0.4107
+--------------------------------------------------------------------------------------
+>> RESULT: Team A outperforms Team B.
+=========Hallucinations=========
+Team Manager B Hallucinated 7 times ==>  gpt-4o AND gpt-4o-mini
+Team Manager Error: Error: Internal skill requires a target ID. ==> 3 times
+Team Manager Error: Infight cannot target self. ==> 4 times

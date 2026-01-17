@@ -1,0 +1,2844 @@
+Starting Battle Simulation (5 Episodes)...
+Running Episode 1...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Redguard', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Deflect: Distribute '70%' damage to teammates and take '30%' damage when attacked. Gains 40 attack  points after taking 200 damage accumulated.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 1: {'idx': 1, 'name': 'Onsimer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}, 2: {'idx': 2, 'name': 'Breton', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20."}, 3: {'idx': 3, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill will deal damage to all enemies, which is beneficial at the start of the battle to weaken the opposing team. This also ensures that Argonian is utilized early in the game, following the strategy to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    > Redguard took 21 damage. HP: 379
+    > [Redguard Tracker] Accumulated: 21/200
+    > Onsimer took 70 damage. HP: 314
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 314
+    > Argonian took 70 damage. HP: 314
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 379, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "I am using Redguard's Infight to significantly boost his attack power early in the game. This sets him up to be a major threat in the following turns. I am targeting Onsimer, who has high health and can afford to take the 75 damage.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 259
+    > Redguard gains 140 Attack Power! (New AP: 340)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use the AOE attack to deal damage to all enemies. This will help in weakening multiple opponents simultaneously, setting up for future strategic attacks. Additionally, using Argonian first ensures that I am not over-relying on a single hero and diversifying my attack strategy.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    > Redguard took 21 damage. HP: 358
+    > [Redguard Tracker] Accumulated: 42/200
+    > Onsimer took 70 damage. HP: 173
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 228
+    > Argonian took 70 damage. HP: 228
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 358, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "Onsimer's health is the lowest on the team at 193, making him a likely target. I am using Breton's 'Subtle' skill to apply a 70% damage reduction shield on Onsimer, greatly increasing his chance of survival. This defensive move preserves our team's critical damage dealer for future turns.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord's Crit skill allows for a high damage attack against a single enemy. This is a good opportunity to deal significant damage early in the battle. Additionally, using Nord now helps to ensure that I rotate through the heroes and do not use the same hero consecutively more than twice.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 322
+    > [Redguard Tracker] Accumulated: 78/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 322, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Onsimer has low health but is currently protected by a Subtle shield, making this a safe opportunity to attack. His Crit skill can deal significant damage to a single target, potentially eliminating a key enemy hero and shifting the battle in our favor. I am prioritizing focused damage over buffs or AOE this turn to try and secure a kill.', 'current_ap': 220}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 220
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian's AOE skill allows us to deal damage to all enemies simultaneously, which is beneficial for weakening the opposing team as a whole. This is a strategic move to spread damage across multiple enemies, potentially setting up for more focused attacks in subsequent turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    > Redguard took 21 damage. HP: 301
+    > [Redguard Tracker] Accumulated: 99/200
+    > Onsimer consumes SUBTLE SHIELD! Reduced 70 -> 21
+    > Onsimer took 21 damage. HP: 128
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 114
+    > Argonian took 70 damage. HP: 114
+    > Argonian ACTIVATED 'COUNTER' (+30 damage)
+[Team A] RECOIL! Taking 30 counter-damage.
+Manager: Hero Argonian (ID: 0) took 30 damage.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 301, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "My team has three heroes with low health, especially Breton and Argonian at 114. I am choosing Breton to use 'Subtle' on himself. This is a strategic defensive move to ensure he survives the next incoming attack, maintaining my team's numbers on the battlefield. This also provides a small attack power boost for his next turn.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Breton!
+    > Breton is now SHIELDED (70% damage reduction on next hit.)
+    > Breton gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is at full health and has not been used yet. Using his Crit skill will deal significant damage to an enemy, and it helps in diversifying the heroes used in the battle.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 265
+    > [Redguard Tracker] Accumulated: 135/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 265, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': "My team's health is dangerously low, especially for Breton and Argonian. Since Breton already has a subtle shield active, I will use his 'Subtle' skill to protect Argonian, who is also at critical health. This defensive move is crucial to prevent losing a hero and to maintain our team's presence in the fight.", 'current_ap': 220}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us maintain offensive pressure on the enemy team. Additionally, Nord has not been used yet, fulfilling the strategy of utilizing each hero at least once.", 'current_ap': 200}    
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 229
+    > [Redguard Tracker] Accumulated: 171/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 229, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team has three heroes with low health. The best course of action is to eliminate an enemy threat as quickly as possible. Redguard has a massive 340 attack power, making his Basic Attack the most powerful and reliable single-target damage option available. Using his 'Infight' skill would be too risky as it would either kill a teammate or leave them with critically low health.", 'current_ap': 340}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 340
+Attacker Skill description: Basic Attack
+{'damage_amount': 340, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 340 damage (AOE: False)
+    > Incoming: 340 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 400, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit skill that can deal significant damage to an enemy. Since all heroes are currently alive and no teammate needs immediate support, using Nord's Crit skill is a strategic choice to weaken the enemy team. Additionally, this choice ensures that Nord is utilized at least once, aligning with the strategy to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 193
+    > [Redguard Tracker] Accumulated: 207/200
+    > REDGURAD FRENZY! Redguard gains +40 AP! (NEW AP: 380)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 193, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical state with three heroes at very low health. The best strategy is to eliminate an enemy threat as quickly as possible. Onsimer's Crit skill targets the enemy with the lowest health, maximizing the chance of securing a kill. Using Onsimer now is also wise as he has very low health and may not survive another round.", 'current_ap': 220}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 220
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 80
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 80, 'status': 'alive'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful critical attack that can deal significant damage to an enemy. This move will help weaken the opposing team while keeping our team's attack strategy varied. Nord has not been used in the last move, so it's a good opportunity to utilize his critical attack.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 157
+    > [Redguard Tracker] Accumulated: 243/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 157, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical situation with three heroes on the brink of death. Onsimer's health is extremely low at 36, and this is likely his last chance to act. I am choosing his 'Crit' active skill to focus fire on the weakest enemy, aiming to secure a kill and reduce incoming damage for my surviving heroes. This is a high-risk, high-reward play to try and even the odds.", 'current_ap': 220}  
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy correctly identified Argonian (Already Revealed). No global damage.
+Attacker current AP: 220
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 308, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 308 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 308 damage (AOE: False)
+    > Argonian took 308 damage. HP: -228
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This move will help us weaken the opposing team while keeping our strategy diverse by not using the same hero consecutively.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Hero Breton has DIED.
+    -> Teammate Argonian took 28 shared.
+    > Hero Argonian has DIED.
+    > Redguard took 36 damage. HP: 121
+    > [Redguard Tracker] Accumulated: 279/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 121, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "My team is in a dire situation with only two heroes remaining, and Onsimer has only 8 health. He is almost certain to be defeated in the next enemy turn. I will strategically sacrifice Onsimer using Redguard's 'Infight' skill. This will unfortunately defeat Onsimer, but it will massively boost Redguard's attack power to 520 (380 + 140), making him a powerful force for the next round.", 'current_ap': 380}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health -67
+    > Hero Onsimer has DIED.
+    > Redguard gains 140 Attack Power! (New AP: 520)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This move will help in reducing the enemy's health significantly, and since Nord hasn't been used recently, it's a good opportunity to utilize his skill.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 85
+    > [Redguard Tracker] Accumulated: 315/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 85, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive on my team. His active skill, Infight, requires a living teammate to target, making it unusable in this situation. Therefore, the only viable option is to use a Basic Attack to deal damage to the enemy, leveraging Redguard's high attack power of 520.", 'current_ap': 520}     
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 520
+Attacker Skill description: Basic Attack
+{'damage_amount': 520, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 520 damage (AOE: False)
+    > Incoming: 520 damage (AOE: False)
+    > Imperial took 520 damage. HP: -170
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us maximize damage output while keeping our strategy flexible for future turns. Additionally, Nord has not been used in the last move, ensuring we are following the strategy rules.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 49
+    > [Redguard Tracker] Accumulated: 351/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 49, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. The active skill 'Infight' requires another living teammate as a target, which is not possible. Therefore, the only viable option is to use a Basic Attack to deal as much damage as possible with Redguard's high attack power.", 'current_ap': 520}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 520
+Attacker Skill description: Basic Attack
+{'damage_amount': 520, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 520 damage (AOE: False)
+    > Incoming: 520 damage (AOE: False)
+    > Bosmer took 520 damage. HP: -170
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 12 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is the only hero alive in the team. Using his Crit skill will deal significant damage to the enemy. This is a strategic move to maximize damage output while adhering to the rule of not using the same hero more than twice in succession.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 13
+    > [Redguard Tracker] Accumulated: 387/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 13, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. The 'Infight' active skill requires a living teammate as a target, which is not possible. Therefore, the only available and logical move is a 'Basic Attack' to deal damage to the enemy, leveraging Redguard's high attack power.", 'current_ap': 520}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 520
+Attacker Skill description: Basic Attack
+{'damage_amount': 520, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 520 damage (AOE: False)
+    > Incoming: 520 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 350, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 13 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is the only hero alive and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will maximize damage output and potentially turn the tide of battle.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: -23
+    > [Redguard Tracker] Accumulated: 423/400
+    > REDGURAD FRENZY! Redguard gains +40 AP! (NEW AP: 560)
+    > Hero Redguard has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(1) vs B(0)
+Damage Dealt: A(1600) - B(1250)
+Running Episode 2...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Redguard', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Deflect: Distribute '70%' damage to teammates and take '30%' damage when attacked. Gains 40 attack  points after taking 200 damage accumulated.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 1: {'idx': 1, 'name': 'Breton', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20."}, 2: {'idx': 2, 'name': 'Onsimer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}, 3: {'idx': 3, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord's Crit skill allows for a high-damage attack on a single enemy, which can be useful for weakening or eliminating a specific target. This choice also ensures that we are not overusing any single hero and allows us to maintain a balanced strategy by utilizing different heroes' skills.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Nord took 28 shared.
+    > Redguard took 36 damage. HP: 364
+    > [Redguard Tracker] Accumulated: 36/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 364, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "It's early in the game, and all my heroes are healthy. Applying strong offensive pressure is a good opening strategy. Onsimer's skill specifically targets the enemy with the lowest health, which is excellent for focusing fire and trying to secure an early elimination to gain a numbers advantage.", 'current_ap': 200}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Onsimer)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Onsimer'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord's Crit skill allows us to deal significant damage to a single enemy. This is a good opportunity to utilize Nord's ability to potentially eliminate or weaken a key enemy hero. Additionally, Nord has not been used yet, fulfilling the strategy of using each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Nord took 28 shared.
+    > Redguard took 36 damage. HP: 328
+    > [Redguard Tracker] Accumulated: 72/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "I am using Redguard's Infight skill to significantly boost his attack power early in the game. This will create a powerful threat for my next turn. I am targeting a full-health teammate, Onsimer, as the health cost is manageable at this stage.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 269
+    > Redguard gains 140 Attack Power! (New AP: 340)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is selected to use the Crit skill to deal significant damage to an enemy. This move is strategic as it allows us to inflict a high amount of damage while keeping our options open for future moves with other heroes.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Nord took 28 shared.
+    > Redguard took 36 damage. HP: 292
+    > [Redguard Tracker] Accumulated: 108/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 292, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': "My strategy is to significantly boost Redguard's already high attack power to create a major threat for subsequent turns. Using 'Infight' will raise its attack to 480. I am targeting Nord, who has the highest health alongside Breton, making them the best candidate to absorb the self-inflicted damage.", 'current_ap': 340}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Nord!
+    > Nord takes 75 damage. Health 241
+    > Redguard gains 140 Attack Power! (New AP: 480)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a strong critical attack that can deal significant damage to an enemy. This move will help in reducing the enemy's health effectively. Additionally, Nord has not been used yet, so this aligns with the strategy of using each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Nord took 28 shared.
+    > Redguard took 36 damage. HP: 256
+    > [Redguard Tracker] Accumulated: 144/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 256, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Redguard currently has a massive 480 attack power. A Basic Attack is the most efficient way to apply significant pressure and deal maximum damage to a single enemy target this turn without harming any teammates.', 'current_ap': 480}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 480
+Attacker Skill description: Basic Attack
+{'damage_amount': 480, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 480 damage (AOE: False)
+    > Incoming: 480 damage (AOE: False)
+    > Argonian took 480 damage. HP: -200
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a powerful critical attack that can deal significant damage to an enemy. This move will help us weaken the opposing team while keeping our strategy diverse by using different heroes.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Nord took 28 shared.
+    > Redguard took 36 damage. HP: 220
+    > [Redguard Tracker] Accumulated: 180/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 220, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Redguard currently has a massive 480 attack power. A Basic Attack is the most direct and powerful single-target move I can make without sacrificing the health of my teammates, two of whom are already low on health. This move maximizes immediate damage and pressure on the enemy team.', 'current_ap': 480}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 480
+Attacker Skill description: Basic Attack
+{'damage_amount': 480, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 480 damage (AOE: False)
+    > Incoming: 480 damage (AOE: False)
+    > Nord took 480 damage. HP: -80
+    > Hero Nord has DIED.
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Bosmer is alive and has a powerful Crit skill that can deal significant damage to the enemy with the lowest health. This move can potentially eliminate a weak enemy or severely weaken them, giving us an advantage. Additionally, using Bosmer now ensures that we are not over-relying on a single hero and diversifying our attack strategy.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > Incoming: 120 damage (AOE: False)
+    > Onsimer took 120 damage. HP: 65
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 220, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer's health is critically low at 85. Applying Breton's 'Subtle' skill will provide a 70% damage reduction shield, greatly increasing his chances of surviving the next attack. This defensive maneuver prioritizes keeping our team members alive, allowing Onsimer to hopefully use his powerful Crit skill in a future turn.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Bosmer is alive and has a powerful Crit skill that can deal significant damage to the enemy with the lowest health. This move will help us strategically weaken the enemy team by targeting their most vulnerable member. Additionally, using Bosmer now ensures that we are not over-relying on a single hero and are utilizing different heroes effectively.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Onsimer consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Onsimer took 84 damage. HP: 1
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 220, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer's health is critically low at 21. Using Breton's 'Subtle' skill provides a 70% damage reduction shield, which is crucial for his survival and allows us to utilize his powerful 'Crit' attack in the next turn.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is alive and has a powerful Crit skill that can deal significant damage to an enemy, especially if the enemy's health is low. This move will help us maximize damage output and potentially eliminate a weakened enemy.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Onsimer consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Onsimer took 84 damage. HP: -63
+    > Hero Onsimer has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 220, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard currently has a massive 480 attack power. The most effective and direct strategy is to leverage this strength with a Basic Attack to deal significant damage and potentially eliminate an enemy hero. Using 'Infight' would be overkill and needlessly damage my own team, which has heroes with low to medium health.", 'current_ap': 480}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 480
+Attacker Skill description: Basic Attack
+{'damage_amount': 480, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 480 damage (AOE: False)
+    > Incoming: 480 damage (AOE: False)
+    > Imperial took 480 damage. HP: -80
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive in the team. Using Bosmer's Crit skill is strategic because it targets the enemy with the lowest health, potentially maximizing the damage output. This move also adheres to the rule of not using the same hero more than twice in succession, as Bosmer has not been used yet.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Nord
+    > Incoming: 120 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 220, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard currently has an exceptionally high attack power of 480. Using his 'Infight' skill would further increase this, but at the cost of damaging a teammate, and both Nord and Breton are at low to moderate health. The safest and most effective move is to capitalize on the existing high attack power by using a Basic Attack. This will deal a massive 480 damage to a single enemy, potentially eliminating a threat without any risk to my own team.", 'current_ap': 480}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 480
+Attacker Skill description: Basic Attack
+{'damage_amount': 480, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 480 damage (AOE: False)
+    > Incoming: 480 damage (AOE: False)
+    > Bosmer took 480 damage. HP: -80
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team A HAS DECLARED SURRENDER. Team B WINS! !!!
+
+=== GAME OVER ===
+Winner: Team B
+Alive: A(0) vs B(3)
+Damage Dealt: A(935) - B(1600)
+Running Episode 3...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Redguard', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Deflect: Distribute '70%' damage to teammates and take '30%' damage when attacked. Gains 40 attack  points after taking 200 damage accumulated.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 1: {'idx': 1, 'name': 'Breton', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20."}, 2: {'idx': 2, 'name': 'Onsimer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}, 3: {'idx': 3, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord's Crit skill allows for a significant amount of damage to be dealt to a single enemy. This is an effective move to start with, as it can potentially weaken a key enemy hero early in the battle. Additionally, using Nord first ensures that we are not relying on a single hero repeatedly and allows us to strategize future moves with other heroes.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 364
+    > [Redguard Tracker] Accumulated: 36/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 364, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I am starting with Argonian's AOE attack to apply pressure to the entire enemy team. This will soften them up for future focused attacks from heroes like Onsimer and allows me to deal damage without revealing a specific high-priority hero yet.", 'current_ap': 200}      
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    >  CRITICAL BREACH! Enemy correctly guessed Argonian!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 280
+    > Nord took 70 damage. HP: 280
+    > Imperial took 70 damage. HP: 280
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 70 damage. HP: 280
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 3) took 40 damage.
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 280, 'status': 'alive'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord has not been used yet, and his Crit skill can deal significant damage to a single enemy. This will help us diversify our attack strategy and ensure that each hero is utilized at least once.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    > Redguard took 36 damage. HP: 328
+    > [Redguard Tracker] Accumulated: 72/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "As an opening move, attacking all enemies with Argonian's AOE is a strong strategic choice. It will damage the entire enemy team, allowing me to see their health totals and better plan my focus for subsequent turns. This is a low-risk, high-information play to start the battle.", 'current_ap': 200}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager A Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Argonian took 70 damage. HP: 160
+    > Nord took 70 damage. HP: 160
+    > Imperial took 70 damage. HP: 180
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+    > Bosmer took 70 damage. HP: 160
+   >  Bosmer ACTIVATED 'EXPLODE' (+40 damage)
+[Team B] RECOIL! Taking 40 counter-damage.
+Manager: Hero Argonian (ID: 3) took 40 damage.
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 160, 'status': 'alive'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 0, 'reasoning': "Imperial's Infight skill will increase its attack power significantly, preparing for stronger future attacks. Argonian has the lowest health but is still alive, making it a valid target for Infight. This move will also reveal Imperial, diversifying our strategy.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Imperial uses Infight on Argonian!
+    > Argonian takes 75 damage. Health 85
+    > Imperial gains 140 Attack Power! (New AP: 340)
+[Team A] performed an internal maneuver. Turn ends.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "I am using Redguard's Infight on Breton, one of my healthiest heroes. This is a strategic move to significantly boost Redguard's attack power to 340. This setup will allow for a powerful attack in the next round, aiming to secure an early advantage by sacrificing a manageable amount of health.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Breton!
+    > Breton takes 75 damage. Health 269
+    > Redguard gains 140 Attack Power! (New AP: 340)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Imperial', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "Imperial has a unique skill that can significantly increase its attack power, making it a formidable force in future turns. By using Infight on Nord, who has enough health to withstand the damage, we can boost Imperial's attack power for future attacks. This strategy ensures that we are setting up for a stronger attack in subsequent turns while also utilizing different heroes.", 'current_ap': 340}
+
+-----------------------------
+    > INTERNAL ACTION: Imperial uses Infight on Nord!
+    > Nord takes 75 damage. Health 85
+    > Imperial gains 140 Attack Power! (New AP: 480)
+[Team A] performed an internal maneuver. Turn ends.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "I am using Redguard's Infight skill on Onsimer to significantly boost Redguard's attack power to 480. Onsimer has the highest health on the team and can easily absorb the friendly fire damage. This sets up Redguard for a devastatingly powerful attack in the next round, putting immense pressure on the enemy team.", 'current_ap': 340}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 269
+    > Redguard gains 140 Attack Power! (New AP: 480)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer's Crit skill is effective against enemies with low health, potentially increasing the damage further. This is a strategic move to maximize damage output and possibly eliminate a weakened enemy. Additionally, Bosmer has not been used recently, ensuring a varied strategy.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 144
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': "Argonian's health is critically low at 144. Using Breton's Subtle skill on Argonian will apply a 70% damage reduction shield, significantly increasing their chance of survival against the next attack. This defensive move prioritizes keeping all team members alive.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer's Crit skill can deal significant damage, especially if the enemy's health is below 160, increasing the damage to 140%. This is a strategic choice to potentially eliminate a low-health enemy quickly. Additionally, Bosmer has not been used yet, fulfilling the requirement to select each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Argonian consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Argonian took 84 damage. HP: 60
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 3, 'reasoning': "Argonian's health is critically low at 60 HP. The highest priority is to prevent them from being knocked out. Using Breton's 'Subtle' skill on Argonian will apply a 70% damage reduction shield, greatly increasing their chance of surviving the next attack and allowing us to maintain our full team roster.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has a unique Crit skill that can deal significant damage, especially if the enemy's health is below 160. This is a strategic choice to potentially eliminate a low-health enemy and fulfill the requirement of using each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Argonian consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Argonian took 84 damage. HP: -24
+    > Hero Argonian has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': 'Redguard already has a very high attack power of 480. I will use Infight to boost it even further to 620, turning him into a massive threat. I am targeting Onsimer, who can afford to take the 75 damage. This sets up for a devastating attack on my next turn.', 'current_ap': 480}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 194
+    > Redguard gains 140 Attack Power! (New AP: 620)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has not been used yet, and his Crit skill can deal significant damage, especially if the target's health is below 160. This will help in weakening the enemy team further.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > Incoming: 120 damage (AOE: False)
+    > Onsimer took 120 damage. HP: 74
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer's health is critically low at 94. Using Breton's 'Subtle' skill on him will provide a 70% damage reduction shield, significantly increasing his chances of surviving the next enemy attack. This preserves our team's numbers and keeps our finisher hero in the fight.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has not been used yet, and his Crit skill can deal significant damage, especially if the enemy's health is below 160. This will help us maximize damage output and potentially eliminate a weakened enemy.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > CRIT BOOST! Target HP < 160. Damage Increased: 120 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Onsimer consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Onsimer took 84 damage. HP: 10
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer's health is critically low at 30. Applying Breton's 'Subtle' skill will reduce the next incoming damage by 70%, giving him a high chance to survive the next attack and potentially heal from his passive. This is a crucial defensive move to keep our damage dealer in the fight.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has not been used yet, and his Crit skill can deal significant damage, especially if the enemy's health is below 160. This will help in reducing the enemy's numbers or weakening them significantly.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 240, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 240 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Onsimer
+    > CRIT BOOST! Target HP < 160. Damage Increased: 240 -> 280
+    > Incoming: 280 damage (AOE: False)
+    > Onsimer consumes SUBTLE SHIELD! Reduced 280 -> 84
+    > Onsimer took 84 damage. HP: -54
+    > Hero Onsimer has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "With two heroes down, my priority is to eliminate an enemy threat quickly. Redguard's attack power is extremely high at 620. Using his Basic Attack will inflict massive damage without risking my only other teammate, Breton, whose health is already low. Using 'Infight' would be too risky, and a defensive move from Breton would waste the opportunity to press my current attack advantage.", 'current_ap': 620}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 620
+Attacker Skill description: Basic Attack
+{'damage_amount': 620, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 620 damage (AOE: False)
+    > Incoming: 620 damage (AOE: False)
+    > Imperial took 620 damage. HP: -420
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Bosmer has not been used yet, and their Crit skill is effective against enemies with low health. This will help us maximize damage output and potentially eliminate a weakened enemy.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 240, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 240 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Breton
+    > Incoming: 240 damage (AOE: False)
+    > Breton ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "With only two heroes remaining and Breton's health being relatively low, the priority is survival. Using Subtle on Breton himself will drastically reduce the next incoming damage, ensuring he stays alive. This defensive maneuver preserves my team's numbers and sets up Redguard for a powerful attack in the subsequent turn.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Breton!
+    > Breton is now SHIELDED (70% damage reduction on next hit.)
+    > Breton gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 12 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer has not been used yet and has a powerful critical attack that can deal increased damage if the enemy's health is below 160. This is a strategic move to potentially eliminate a low-health enemy quickly.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Breton
+    > Incoming: 120 damage (AOE: False)
+    > Breton ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 328, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is down to two heroes. Redguard's attack power is exceptionally high at 620. Using 'Infight' would damage my only other living teammate, Breton, whose health is already low at 269. The safest and most impactful move is to use Redguard's 'Basic Attack' to deal massive damage to an enemy and try to eliminate a threat.", 'current_ap': 620}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 620
+Attacker Skill description: Basic Attack
+{'damage_amount': 620, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 620 damage (AOE: False)
+    > Incoming: 620 damage (AOE: False)
+    > Bosmer took 620 damage. HP: -460
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 13 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian is one of the two remaining alive heroes. Using the AOE skill will allow us to deal damage to all enemies, which is strategic given the current situation. This also ensures that we are utilizing different heroes and not relying solely on Nord's Crit skill.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 49 shared.
+    > Redguard took 21 damage. HP: 307
+    > [Redguard Tracker] Accumulated: 93/200
+    > Breton consumes SUBTLE SHIELD! Reduced 70 -> 21
+    > Breton took 21 damage. HP: 199
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 307, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "My team is down to two heroes, and Breton's health is critically low at 199. To ensure he survives the next enemy attack, I am using his Subtle skill on himself. This provides a crucial 70% damage reduction shield, preserving our team's numbers and allowing our main damage dealer, Redguard, to stay supported.", 'current_ap': 220}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Breton!
+    > Breton is now SHIELDED (70% damage reduction on next hit.)
+    > Breton gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 14 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. Since both Argonian and Nord have been used, and Imperial and Bosmer are dead, Nord is a strategic choice to maximize damage output against the enemy.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 84 shared.
+    > Redguard took 36 damage. HP: 271
+    > [Redguard Tracker] Accumulated: 129/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 271, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical situation with only two heroes left. Redguard has an exceptionally high attack power of 620. The most effective strategy is to use a Basic Attack to deal maximum damage to a single enemy, aiming to eliminate a threat quickly. Using Redguard's 'Infight' on Breton is too risky, as Breton's health is already very low (115 HP), and the 75 damage would put them in immediate danger of being knocked out.", 'current_ap': 620}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy correctly identified Nord (Already Revealed). No global damage.
+Attacker current AP: 620
+Attacker Skill description: Basic Attack
+{'damage_amount': 620, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 620 damage (AOE: False)
+    > Incoming: 620 damage (AOE: False)
+    > Nord took 620 damage. HP: -535
+    > Hero Nord has DIED.
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 15 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Argonian is the only hero alive in the team. Using the AOE skill will allow us to deal damage to all enemies, which is strategic given the current situation where we need to maximize our damage output with limited resources.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 49 shared.
+    > Redguard took 21 damage. HP: 250
+    > [Redguard Tracker] Accumulated: 150/200
+    > Breton ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 250, 'status': 'alive'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is down to two heroes. Redguard has an exceptionally high attack power of 620. Using his 'Infight' skill would kill my only other teammate, Breton, who has only 66 health. Therefore, the most logical and powerful move is to use Redguard's Basic Attack to deal massive damage to an enemy and try to even the odds.", 'current_ap': 620}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy correctly identified Argonian (Already Revealed). No global damage.
+Attacker current AP: 620
+Attacker Skill description: Basic Attack
+{'damage_amount': 620, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 620 damage (AOE: False)
+    > Incoming: 620 damage (AOE: False)
+    > Argonian took 620 damage. HP: -535
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'Argonian', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 16 ---
+
+>>> Team A is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team A HAS DECLARED SURRENDER. Team B WINS! !!!
+
+=== GAME OVER ===
+Winner: Team B
+Alive: A(0) vs B(2)
+Damage Dealt: A(1284) - B(1600)
+Running Episode 4...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Redguard', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Deflect: Distribute '70%' damage to teammates and take '30%' damage when attacked. Gains 40 attack  points after taking 200 damage accumulated.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 1: {'idx': 1, 'name': 'Onsimer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}, 2: {'idx': 2, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 3: {'idx': 3, 'name': 'Breton', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20."}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use the AOE skill to deal damage to all enemies. This will help weaken the entire opposing team, setting up for future attacks. Additionally, this is the first time Argonian is being used, ensuring that all heroes are utilized strategically.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 379
+    > [Redguard Tracker] Accumulated: 21/200
+    > Onsimer took 70 damage. HP: 314
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Argonian took 70 damage. HP: 314
+    > Breton took 70 damage. HP: 314
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 379, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "My team is at full health, making it an ideal time to use Redguard's Infight for a massive attack power boost. I am targeting Onsimer, who has the second-highest health, to minimize the risk. This will set Redguard up to be a major damage dealer in the next turn.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 259
+    > Redguard gains 140 Attack Power! (New AP: 340)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill allows us to deal damage to all enemies simultaneously. This is a strategic move to weaken the entire opposing team early in the battle, setting up for more focused attacks later. Additionally, this ensures that Argonian is used at least once, adhering to the strategy rules.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 358
+    > [Redguard Tracker] Accumulated: 42/200
+    > Onsimer took 70 damage. HP: 173
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Argonian took 70 damage. HP: 228
+    > Breton took 70 damage. HP: 228
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 358, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "I am using Redguard's 'Infight' on Argonian to significantly boost Redguard's attack power. Redguard already has a high base attack of 340, and this will raise it to 480, making its next attack devastating. Argonian has enough health (228) to absorb the 75 damage, making this a worthwhile strategic sacrifice to set up a powerful offensive for the next turn.", 'current_ap': 340}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Argonian!
+    > Argonian takes 75 damage. Health 153
+    > Redguard gains 140 Attack Power! (New AP: 480)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord's Crit skill allows for a powerful attack on an enemy, dealing significant damage. This move will help us weaken the opposing team early in the battle. Additionally, using Nord now ensures we are rotating our heroes and not relying on the same one repeatedly.", 'current_ap': 200}    
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 322
+    > [Redguard Tracker] Accumulated: 78/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 322, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Argonian's health is critically low at 125. To prevent him from being eliminated in the next turn, I am using Breton's 'Subtle' skill to apply a 70% damage reduction shield. This defensive move prioritizes team survival over immediate damage, ensuring we keep more heroes in the fight for longer.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'I chose Argonian to use the AOE skill to deal damage to all enemies. This will help weaken the opposing team as a whole, setting up for more strategic attacks in future turns. Additionally, using Argonian ensures that I am not overusing any single hero and am adhering to the strategy of utilizing each hero at least once.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 301
+    > [Redguard Tracker] Accumulated: 99/200
+    > Onsimer took 70 damage. HP: 79
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Argonian consumes SUBTLE SHIELD! Reduced 70 -> 21
+    > Argonian took 21 damage. HP: 88
+    > Argonian ACTIVATED 'COUNTER' (+30 damage)
+    > Breton took 70 damage. HP: 114
+[Team A] RECOIL! Taking 30 counter-damage.
+Manager: Hero Argonian (ID: 0) took 30 damage.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 301, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "My team's health is critically low, especially for Onsimer and Argonian. The most strategic move is to protect my most vulnerable hero. I will use Breton's 'Subtle' skill on Argonian (88 HP) to apply a 70% damage reduction shield, significantly increasing his chances of survival against the next attack. This prioritizes team longevity over immediate offense.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit skill that can deal significant damage to a single enemy. Using this skill now will help us weaken the enemy team. Additionally, Nord hasn't been used yet, which aligns with the strategy of utilizing each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 265
+    > [Redguard Tracker] Accumulated: 135/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 265, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical state with three heroes having very low health. Redguard's attack power is currently 480, which is extremely high. Using its active skill 'Infight' would kill Argonian or Onsimer, and leave Breton with minimal health, which is too risky. Therefore, I am opting for a Basic Attack from Redguard. This move leverages its immense attack power to deal significant damage to a single enemy, potentially eliminating a threat without sacrificing any of my fragile teammates.", 'current_ap': 480}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 480
+Attacker Skill description: Basic Attack
+{'damage_amount': 480, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 480 damage (AOE: False)
+    > Incoming: 480 damage (AOE: False)
+    > Argonian took 480 damage. HP: -110
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This is a good opportunity to use Nord's skill to weaken the enemy team. Additionally, Nord hasn't been used yet, fulfilling the strategy of using each hero at least once.", 'current_ap': 200}       
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 229
+    > [Redguard Tracker] Accumulated: 171/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 229, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 0, 'reasoning': 'My team\'s health is critically low, with three heroes under 60 HP. My primary damage dealer, Redguard, is the only one with substantial health. I am using Breton\'s "Subtle" skill to protect Redguard from the next incoming attack, ensuring my powerhouse survives to deal damage in the upcoming rounds. This is a strategic defensive play to preserve our main offensive threat.', 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Redguard!
+    > Redguard is now SHIELDED (70% damage reduction on next hit.)
+    > Redguard gains 20 AP! (New AP: 500)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This will help us weaken the opposing team while keeping our strategy diverse by not using the same hero repeatedly.', 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Argonian took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard consumes SUBTLE SHIELD! Reduced 36 -> 10
+    > Redguard took 10 damage. HP: 219
+    > [Redguard Tracker] Accumulated: 181/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 219, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical state with three heroes having very low health. The most effective strategy is to eliminate an enemy threat as quickly as possible to reduce incoming damage. Redguard has a massive 500 attack power, making a Basic Attack the strongest single-target move I can perform this turn. Using Redguard's 'Infight' active skill is not an option, as dealing 75 damage would kill any of my other living teammates.", 'current_ap': 500}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 500
+Attacker Skill description: Basic Attack
+{'damage_amount': 500, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 500 damage (AOE: False)
+    > Incoming: 500 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 400, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. This move helps in reducing the enemy's health significantly, and since Nord hasn't been used recently, it's a strategic choice to diversify our attack pattern.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 28 shared.
+    > Hero Onsimer has DIED.
+    -> Teammate Argonian took 28 shared.
+    > Hero Argonian has DIED.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 183
+    > [Redguard Tracker] Accumulated: 217/200
+    > REDGURAD FRENZY! Redguard gains +40 AP! (NEW AP: 540)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 183, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team is in a critical situation with two heroes down and one on the brink of death. Redguard is my only strong hero with a massive 540 attack power. The most effective strategy is to leverage this power immediately to deal maximum damage to the enemy, hopefully eliminating a threat. Using Infight on Breton would kill my last remaining teammate, which is too risky. Using Breton's Subtle skill would forfeit this turn's damage, and the enemy could simply target Breton anyway. Therefore, a powerful Basic Attack from Redguard is the optimal move.", 'current_ap': 540}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 540
+Attacker Skill description: Basic Attack
+{'damage_amount': 540, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 540 damage (AOE: False)
+    > Incoming: 540 damage (AOE: False)
+    > Imperial took 540 damage. HP: -140
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has not been used yet. Using Nord's Crit skill will deal significant damage to an enemy. This will also help in revealing Nord's identity to the enemy team, which is part of the strategy to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Breton took 84 shared.
+    > Hero Breton has DIED.
+    > Redguard took 36 damage. HP: 147
+    > [Redguard Tracker] Accumulated: 253/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 147, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. The active skill 'Infight' requires another living teammate as a target, which is not possible. Therefore, the only available and logical move is to use a Basic Attack to leverage Redguard's high attack power of 540 against the enemy.", 'current_ap': 540}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 540
+Attacker Skill description: Basic Attack
+{'damage_amount': 540, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 540 damage (AOE: False)
+    > Incoming: 540 damage (AOE: False)
+    > Nord took 540 damage. HP: -140
+    > Hero Nord has DIED.
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Bosmer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Bosmer is the only hero alive on our team. Using Bosmer's Crit skill will maximize damage output by targeting the enemy with the lowest health, potentially increasing the damage if the target's health is below 160. This move is strategic as it aims to eliminate or significantly weaken an enemy hero.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 280, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager B Incoming: 280 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Redguard
+    > Incoming: 280 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 84 damage. HP: 63
+    > [Redguard Tracker] Accumulated: 337/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 63, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. Its active skill, Infight, requires another living teammate as a target, which is not possible. Therefore, the only available move is a Basic Attack. This will leverage Redguard's high attack power (540) to deal significant damage to an enemy.", 'current_ap': 540}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 540
+Attacker Skill description: Basic Attack
+{'damage_amount': 540, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 540 damage (AOE: False)
+    > Incoming: 540 damage (AOE: False)
+    > Bosmer took 540 damage. HP: -140
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team A HAS DECLARED SURRENDER. Team B WINS! !!!
+
+=== GAME OVER ===
+Winner: Team B
+Alive: A(0) vs B(1)
+Damage Dealt: A(1537) - B(1600)
+Running Episode 5...
+=========================================
+     SYROWAR: MULTI-AGENT BATTLE GAME
+=========================================
+--- Team Generation Agent A: Selecting Heroes ---
+--- Team Generation Agent B: Selecting Heroes ---
+
+--- Team Manager A: Initializing Team Stats ---
+--- Team A ---
+{0: {'idx': 0, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 1: {'idx': 1, 'name': 'Nord', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': 'Crit: Deal 120 CRITICAL damage to enemy.'}, 2: {'idx': 2, 'name': 'Imperial', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 3: {'idx': 3, 'name': 'Bosmer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Explode: Deal 40 damage to the source when attacked, but not died. when the health is below '30%', increase its attack points by 15.", 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}}
+Team initialized with 4 heroes.
+
+--- Team Manager B: Initializing Team Stats ---
+--- Team B ---
+{0: {'idx': 0, 'name': 'Redguard', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Deflect: Distribute '70%' damage to teammates and take '30%' damage when attacked. Gains 40 attack  points after taking 200 damage accumulated.", 'active': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!"}, 1: {'idx': 1, 'name': 'Argonian', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Counter: Deal 30 damage to the attacker when a teammate's health is below 30%.", 'active': "AOE: Attacks all enemies for '35%' of its attack point."}, 2: {'idx': 2, 'name': 'Onsimer', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': 'Heal: Regain 20 health points if the health is still greater than 0 when attacked.', 'active': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'."}, 3: {'idx': 3, 'name': 'Breton', 'health': 400, 'attack_power': 200, 'status': 'alive', 'revealed': False, 'subtle_shield': False, 'accumulated_damage': 0, 'buff_threshold': 200, 'passive': "Reduce: There is a '30%' chance to avoid any incoming damage each time.", 'active': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20."}}
+Team initialized with 4 heroes.
+
+============= BATTLE START =============
+
+--- ROUND 1 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "I chose Argonian to use the AOE skill to deal damage to all enemies. This will help weaken the entire opposing team, setting up for future attacks. It's important to use different heroes and skills strategically, and this move ensures that we are not overly reliant on a single hero's ability.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 379
+    > [Redguard Tracker] Accumulated: 21/200
+    > Argonian took 70 damage. HP: 314
+    > Onsimer took 70 damage. HP: 314
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 314
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 379, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': "Infight: Deal 75 damage on one living teammate and increase your attack points by 140. Notice! You can't attack yourself or a dead teammate!", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "I am using Redguard's Infight to significantly boost his attack power for the next turn. I've chosen Onsimer as the target for the damage since he has the highest health among the valid teammates (334), ensuring he remains at a safe health level. This strategic move will prepare Redguard for a powerful follow-up attack.", 'current_ap': 200}
+
+-----------------------------
+    > INTERNAL ACTION: Redguard uses Infight on Onsimer!
+    > Onsimer takes 75 damage. Health 259
+    > Redguard gains 140 Attack Power! (New AP: 340)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 2 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill allows us to deal damage to all enemies simultaneously, which can be strategic in weakening multiple opponents at once. This is the first time using Argonian, ensuring we follow the strategy of using each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 358
+    > [Redguard Tracker] Accumulated: 42/200
+    > Argonian took 70 damage. HP: 228
+    > Onsimer took 70 damage. HP: 173
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 228
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 358, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer has the lowest health on the team. Applying Breton's 'Subtle' skill will protect him from a potentially fatal blow, increasing our team's survivability and allowing Onsimer to use his critical attack later. This is a strategic defensive move.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 3 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Using Argonian's AOE skill to deal damage to all enemies. This will help in weakening multiple opponents at once, setting up for future attacks. It's also the first time Argonian is being used, adhering to the strategy of using each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 337
+    > [Redguard Tracker] Accumulated: 63/200
+    > Argonian took 70 damage. HP: 142
+    > Onsimer consumes SUBTLE SHIELD! Reduced 70 -> 21
+    > Onsimer took 21 damage. HP: 156
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton took 70 damage. HP: 142
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 337, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Several of my heroes have low health. The most effective way to reduce incoming damage is to eliminate an enemy hero. Onsimer's Crit skill is perfect for targeting and potentially finishing off the weakest enemy, giving us a significant advantage.", 'current_ap': 220}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 220
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 280
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 4 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Argonian', 'selected_skill': "AOE: Attacks all enemies for '35%' of its attack point.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Argonian's AOE skill can deal damage to all enemies, which is beneficial at the start of the battle to weaken the opposing team. This move also helps in revealing Argonian's identity, which is part of the strategy to use each hero at least once.", 'current_ap': 200}    
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: AOE: Attacks all enemies for '35%' of its attack point.
+{'damage_amount': 70, 'is_aoe': True, 'targets_lowest': False}
+    > Team Manager B Incoming: 70 damage (AOE: True)
+    > Incoming: 70 damage (AOE: True)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 16 shared.
+    -> Teammate Onsimer took 16 shared.
+    -> Teammate Breton took 16 shared.
+    > Redguard took 21 damage. HP: 316
+    > [Redguard Tracker] Accumulated: 84/200
+    > Argonian took 70 damage. HP: 56
+    > Onsimer took 70 damage. HP: 90
+  > Onsimer ACTIVATED 'HEAL' (+20 HP)
+    > Breton ACTIVATED 'REDUCE': Dodged!
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 316, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 1, 'reasoning': "My team's health is low overall, with Argonian being critically low at 56 HP. The best strategic move is to protect him from being knocked out. I will use Breton's 'Subtle' skill on Argonian to apply a 70% damage reduction shield, which will significantly increase his chance of surviving the next attack and allow him to act in the following round. This prioritizes team survivability over immediate damage.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Argonian!
+    > Argonian is now SHIELDED (70% damage reduction on next hit.)
+    > Argonian gains 20 AP! (New AP: 220)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 5 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has not been used yet. Using his Crit skill will deal significant damage to an enemy, and it's a good opportunity to reveal his potential without risking his health.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 28 shared.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 280
+    > [Redguard Tracker] Accumulated: 120/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 280, 'status': 'alive'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "Onsimer has very low health (82) but possesses a powerful critical attack skill. Argonian is also low on health but already has a defensive buff. To preserve our offensive capabilities for future turns, I am using Breton's 'Subtle' skill to protect Onsimer from the next incoming attack, ensuring we can use its high-damage skill later.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 240)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 6 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has a powerful Crit skill that can deal significant damage to an enemy. This is a good opportunity to use Nord's active skill to potentially weaken an enemy hero. Additionally, Nord has not been used yet, fulfilling the requirement to use each hero at least once.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Argonian took 28 shared.
+    > Hero Argonian has DIED.
+    -> Teammate Onsimer took 28 shared.
+    -> Teammate Breton took 28 shared.
+    > Redguard took 36 damage. HP: 244
+    > [Redguard Tracker] Accumulated: 156/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 244, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 2, 'hero_name': 'Onsimer', 'selected_skill': "Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.", 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "My team's health is critically low, especially for Onsimer and Breton. Onsimer has a subtle shield, giving him a better chance to survive the next hit than Breton. I'm choosing Onsimer's Crit skill to maximize his value before he is potentially defeated. This skill strategically targets the weakest enemy, which is the best way to reduce incoming damage by eliminating an opponent.", 'current_ap': 240}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Khajit)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    > Enemy guessed 'Khajit'. Incorrect.
+Attacker current AP: 240
+Attacker Skill description: Crit: Deal 120 CRITICAL damage of your attack power to the enemy with the lowest health. If the target's health is below 160, increase CRITICAL damage to '140%'.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': True}
+    > Team Manager A Incoming: 120 damage (AOE: False)
+    > SKILL REDIRECTION Crit: targets LOWEST HP Hero: Argonian
+    > Incoming: 120 damage (AOE: False)
+    > Argonian took 120 damage. HP: 160
+[Team B] Intel Update Pos 1: {'name': 'unknown', 'health': 400, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 7 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us weaken the enemy team while keeping our team balanced in terms of skill usage. This choice also ensures that we are not over-relying on any single hero and allows us to strategize for future turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 42 shared.
+    -> Teammate Breton took 42 shared.
+    > Redguard took 36 damage. HP: 208
+    > [Redguard Tracker] Accumulated: 192/200
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 208, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 3, 'hero_name': 'Breton', 'selected_skill': "Subtle: Choose a teammate or yourself to reduce the damage by '70%' when attacked, and increase your attack point by 20.", 'target_type': 'teammate', 'teammate_target_id': 2, 'reasoning': "My team is in a critical situation with both Onsimer (12 HP) and Breton (28 HP) near death. The best strategic move is to ensure survival. I am selecting Breton to use its 'Subtle' skill on Onsimer. This will reduce the next damage Onsimer takes by 70%, giving it a high chance to survive the next attack and use its powerful Crit ability on a later turn. This prioritizes keeping my heroes alive over immediate damage.", 'current_ap': 200}
+
+-----------------------------
+   > INTERNAL: Breton casts SUBTLE on Onsimer!
+    > Onsimer is now SHIELDED (70% damage reduction on next hit.)
+    > Onsimer gains 20 AP! (New AP: 260)
+[Team B] performed an internal maneuver. Turn ends.
+
+--- ROUND 8 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord has full health and a passive ability that can potentially avoid incoming damage, making it a good candidate for an aggressive move. Using Nord's Crit skill will deal significant damage to an enemy, and since Nord hasn't been used yet, it aligns with the strategy of utilizing different heroes.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Nord)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Nord'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    -> Teammate Onsimer took 42 shared.
+    > Hero Onsimer has DIED.
+    -> Teammate Breton took 42 shared.
+    > Hero Breton has DIED.
+    > Redguard took 36 damage. HP: 172
+    > [Redguard Tracker] Accumulated: 228/200
+    > REDGURAD FRENZY! Redguard gains +40 AP! (NEW AP: 380)
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 172, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. Its active skill, 'Infight', requires a living teammate as a target, which is not possible. Therefore, the only available and logical action is to use a 'Basic Attack' to deal damage to the enemy with its high attack power.", 'current_ap': 380}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 380
+Attacker Skill description: Basic Attack
+{'damage_amount': 380, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 380 damage (AOE: False)
+    > Incoming: 380 damage (AOE: False)
+    > Imperial took 380 damage. HP: 20
+  > Imperial ACTIVATED 'HEAL' (+20 HP)
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 40, 'status': 'alive'}
+[Team B] Guess failed.
+
+--- ROUND 9 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has a powerful critical attack that can deal significant damage to an enemy. Using Nord's Crit skill will maximize our damage output while keeping our team balanced in terms of hero usage. This move also ensures we are not overusing any single hero, maintaining strategic flexibility for future turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 136
+    > [Redguard Tracker] Accumulated: 264/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 136, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. His active skill, 'Infight', requires another living teammate as a target, which is not possible in this situation. Therefore, the only available and strategic move is to use a 'Basic Attack' to leverage his high attack power (380) and deal maximum damage to the enemy.", 'current_ap': 380}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 2 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 2 (Imperial)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 380
+Attacker Skill description: Basic Attack
+{'damage_amount': 380, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 380 damage (AOE: False)
+    > Incoming: 380 damage (AOE: False)
+    > Imperial took 380 damage. HP: -340
+    > Hero Imperial has DIED.
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 10 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is at full health and has not been used yet. Using his Crit skill will deal significant damage to an enemy, and since we haven't used him before, it aligns with the strategy of utilizing different heroes.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 100
+    > [Redguard Tracker] Accumulated: 300/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 100, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. His active skill, 'Infight', requires another living teammate to target, which is not possible. Therefore, the only available and logical move is to use a Basic Attack to deal maximum possible damage to the enemy.", 'current_ap': 380}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 0 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 0 (Argonian)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 380
+Attacker Skill description: Basic Attack
+{'damage_amount': 380, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 380 damage (AOE: False)
+    > Incoming: 380 damage (AOE: False)
+    > Argonian took 380 damage. HP: -220
+    > Hero Argonian has DIED.
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 11 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a powerful Crit skill that can deal significant damage to an enemy. Using Nord's Crit skill will help us maintain pressure on the opposing team. Additionally, this selection ensures we are not overusing any single hero and allows us to strategize for future turns.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 64
+    > [Redguard Tracker] Accumulated: 336/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 64, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': 'Redguard is the only hero left alive. His active skill, Infight, requires a living teammate to target, which is impossible. Therefore, the only viable option is to use a Basic Attack to deal damage to the enemy.', 'current_ap': 380}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 1 (Guess: Nord)
+
+[Team Manager A] Processing Attack on Pos 1 (Nord)...
+    >  CRITICAL BREACH! Enemy correctly guessed Nord!
+ > Applying 50 GLOBAL DAMAGE to team
+Attacker current AP: 380
+Attacker Skill description: Basic Attack
+{'damage_amount': 380, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 380 damage (AOE: False)
+    > Incoming: 380 damage (AOE: False)
+    > Nord ACTIVATED 'REDUCE': Dodged!
+[Team B] Intel Update Pos 1: {'name': 'Nord', 'health': 350, 'status': 'alive'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] TACTICAL SUCCESS! Enemy identity confirmed.
+
+--- ROUND 12 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is alive and has a revealed identity, making it a good choice for an offensive move. Using Nord's Crit skill will deal significant damage to an enemy, which is beneficial for our current strategy. Additionally, Nord hasn't been used in the last move, ensuring we are not using the same hero repeatedly.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: 28
+    > [Redguard Tracker] Accumulated: 372/400
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 28, 'status': 'alive'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 0, 'hero_name': 'Redguard', 'selected_skill': 'Basic Attack', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Redguard is the only hero left alive. The active skill 'Infight' requires a living teammate as a target, which is not possible. Therefore, the only available and logical move is to use a Basic Attack to deal as much damage as possible with Redguard's high attack power.", 'current_ap': 380}
+
+-----------------------------
+[Team B Lead] Sending Attack -> Pos 3 (Guess: Redguard)
+
+[Team Manager A] Processing Attack on Pos 3 (Bosmer)...
+    > Enemy guessed 'Redguard'. Incorrect.
+Attacker current AP: 380
+Attacker Skill description: Basic Attack
+{'damage_amount': 380, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager A Incoming: 380 damage (AOE: False)
+    > Incoming: 380 damage (AOE: False)
+    > Bosmer took 380 damage. HP: -30
+    > Hero Bosmer has DIED.
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team B] Guess failed.
+
+--- ROUND 13 ---
+
+>>> Team A is acting...
+--- Team Manager: Consulting LLM for Turn Strategy
+
+--- Team Manager Decision ---
+{'selected_hero_id': 1, 'hero_name': 'Nord', 'selected_skill': 'Crit: Deal 120 CRITICAL damage to enemy.', 'target_type': 'enemy', 'teammate_target_id': None, 'reasoning': "Nord is the only hero alive in the team. Using Nord's active skill 'Crit' will deal significant damage to an enemy. Since Nord is revealed, using the active skill will maximize the damage output in this situation.", 'current_ap': 200}
+
+-----------------------------
+[Team A Lead] Sending Attack -> Pos 0 (Guess: Argonian)
+
+[Team Manager B] Processing Attack on Pos 0 (Redguard)...
+    > Enemy guessed 'Argonian'. Incorrect.
+Attacker current AP: 200
+Attacker Skill description: Crit: Deal 120 CRITICAL damage to enemy.
+{'damage_amount': 120, 'is_aoe': False, 'targets_lowest': False}
+    > Team Manager B Incoming: 120 damage (AOE: False)
+    > Incoming: 120 damage (AOE: False)
+    > Redguard ACTIVATED 'DEFLECT'
+    > Redguard took 36 damage. HP: -8
+    > [Redguard Tracker] Accumulated: 408/400
+    > REDGURAD FRENZY! Redguard gains +40 AP! (NEW AP: 420)
+    > Hero Redguard has DIED.
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 0: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 1: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 2: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Intel Update Pos 3: {'name': 'unknown', 'health': 0, 'status': 'dead'}
+[Team A] Guess failed.
+
+>>> Team B is acting...
+No alive heroes left! signaling DEFEAT to Team Lead
+
+!!! Team B HAS DECLARED SURRENDER. Team A WINS! !!!
+
+=== GAME OVER ===
+Winner: Team A
+Alive: A(1) vs B(0)
+Damage Dealt: A(1600) - B(1250)
+
+Simulation Complete in 1723.43s
+
+METRIC                                   | TEAM A            | TEAM B
+--------------------------------------------------------------------------------------
+Number of wins out of 5 rounds           |   2 |  3
+Win Rate                                 | 40.00%            | 60.00%
+Avg Damage Rate                          | 86.95%            | 91.25%
+--------------------------------------------------------------------------------------
+FINAL REWARD SCORE                       | 0.5409            | 0.6937
+--------------------------------------------------------------------------------------
+>> RESULT: Team B outperforms Team A.
+=========Hallucinations=========
+No Hallucinations for both models ==> gpt-4o  AND gemini-2.5-pro

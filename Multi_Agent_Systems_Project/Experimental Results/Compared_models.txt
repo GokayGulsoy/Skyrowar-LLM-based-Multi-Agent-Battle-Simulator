@@ -1,0 +1,15 @@
+Experiment ID | Team A | Team B | Difficulty    
+A1 | gpt-4o | gpt-4o-mini | 1.0
+A2 | claude-sonnet-4-5-20250929 | claude-haiku-4-5-20251001 | 1.0
+A3 | gemini-2.5-pro | gemini-2.5-flash | 1.0
+B1 | gpt-4o | claude-sonnet-4-5-20250929 | 1.0
+B2 | gpt-4o | gemini-2.5-pro | 1.0
+B3 | claude-sonnet-4-5-20250929 | gemini-2.5-pro | 1.0
+C1 | gpt-4o | gpt-4o-mini | 1.5
+C2 | claude-sonnet-4-5-20250929 | claude-haiku-4-5-20251001 | 1.5
+C3 | gemini-2.5-pro | gemini-2.5-flash | 1.5
+E1 | llama-3.3-70b-versatile | llama-3.1-8b-instant | 1.0
+E2 | gpt-4o | llama-3.3-70b-versatile | 1.0
+E3 | gemini-2.5-flash | llama-3.1-8b-instant | 1.0
+E4 | gemini-2.5-pro | llama-3.3-70b-versatile | 1.0
+E5 | claude-sonnet-4-5-20250929 | llama-3.3-70b-versatile | 1.0
